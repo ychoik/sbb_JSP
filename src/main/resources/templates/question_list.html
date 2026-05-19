@@ -1,0 +1,15 @@
+<table>
+    <thead>
+    <tr>
+        <th>제목</th>
+        <th>작성일시</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- th:는 타임리프 속성, 이 부분이 자바 코드와 연결됨  -->
+    <tr th:each="question : ${questionList}"><!--Model 객체에 저장한 questionList 데이터를 하나씩 꺼내 question변수에 대입한 후 길이만큼 반복하며 <tr> ... </tr> 문장을 출력-->
+        <td th:text="${question.subject}"></td>
+        <td th:text="${question.createDate}"></td>
+    </tr>
+    </tbody>
+</table>
