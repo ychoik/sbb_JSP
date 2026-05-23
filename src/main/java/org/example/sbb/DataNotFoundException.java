@@ -1,0 +1,18 @@
+package org.example.sbb;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "entity not found")
+public class DataNotFoundException extends RuntimeException {
+    private static final long serialVersionUID = 1L;
+
+    public DataNotFoundException(String message) {
+        super(message);
+    }
+}
+//데이터베이스에서 특정 엔티티 또는 데이터를 찾을 수 없을 떄 발생
+//이 예외가 발생하면 스프링 부트는 설정된 HTTP 상태 코드(HttpStatus.NOT_FOUND)와 이유("entity not found")를 포함한 응답을 생성하여 클라이언트에게 반환
+//여기서는 404 오류
+//RuntimeException클래스를 상속하는 것은 사용자 정의 예외 클래스를 정의하는 방법 중 하나.
+//RuntimeException은 실행 시 발생하는 예외라는 의미
